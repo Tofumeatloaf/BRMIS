@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Inventory - Patients</title>
+  <link rel="stylesheet" href="viewUnits.css">
+  <style>
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px}
+    .data-table th,.data-table td{white-space:nowrap}
+  </style>
+</head>
+<body id="patientView">
+  <h1>Transcription Records</h1>
+
+  <section class="section-block">
+    <h2>Patient Records</h2>
+    <input type="text" id="searchInput" placeholder="Search any field..." />
+
+    <div class="table-scroll">
+      <table class="data-table" id="patientTable">
+        <thead id="patientTableHead">
+          <tr>
+            <th>Patient ID</th>
+            <th>Patient Name</th>
+            <th>Patient Ward</th>
+            <th>Patient Birthdate</th>
+            <th>Patient Contact Number</th>
+            <th>Last Update Timestamp</th>
+            <th>Last Updated by User</th>
+          </tr>
+        </thead>
+        <tbody id="patientTableBody">
+          <tr>
+            <td id="patientid-1">PNT12345</td>
+            <td id="patientname-1">Maureen Aira</td>
+            <td id="patientward-1">Ward 4</td>
+            <td id="birthdate-1">1901-02-05</td>
+            <td id="contact-1">09987456123</td>
+            <td id="lastupdate-1">2025-06-24 15:42</td>
+            <td id="updatedby-1">jdelacruz</td>
+          </tr>
+          <tr>
+            <td id="patientid-2">PNT67890</td>
+            <td id="patientname-2">Carlos Dela Cruz</td>
+            <td id="patientward-2">Ward 2</td>
+            <td id="birthdate-2">1987-08-15</td>
+            <td id="contact-2">09171234567</td>
+            <td id="lastupdate-2">2025-06-25 09:10</td>
+            <td id="updatedby-2">mmarquez</td>
+          </tr>
+          <tr>
+            <td id="patientid-3">PNT24680</td>
+            <td id="patientname-3">Liza Santos</td>
+            <td id="patientward-3">Ward 5</td>
+            <td id="birthdate-3">1992-11-30</td>
+            <td id="contact-3">09283456789</td>
+            <td id="lastupdate-3">2025-06-25 11:22</td>
+            <td id="updatedby-3">rsantos</td>
+          </tr>
+          <tr>
+            <td id="patientid-4">PNT13579</td>
+            <td id="patientname-4">Miguel Reyes</td>
+            <td id="patientward-4">Ward 1</td>
+            <td id="birthdate-4">1975-05-19</td>
+            <td id="contact-4">09091239876</td>
+            <td id="lastupdate-4">2025-06-26 08:05</td>
+            <td id="updatedby-4">jdelacruz</td>
+          </tr>
+          <tr>
+            <td id="patientid-5">PNT55555</td>
+            <td id="patientname-5">Angela Cruz</td>
+            <td id="patientward-5">Ward 3</td>
+            <td id="birthdate-5">2000-03-10</td>
+            <td id="contact-5">09361234567</td>
+            <td id="lastupdate-5">2025-06-26 10:45</td>
+            <td id="updatedby-5">mmarquez</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="viewUnits.js"></script>
+</body>
+</html>

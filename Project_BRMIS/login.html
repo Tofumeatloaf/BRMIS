@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BRMIS | Login Portal</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=alternate_email" />
+	<link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+	<canvas id="bloodCellsCanvas"></canvas>
+	<img src="bg.webp" class="bg-img">
+	<div class="container" id="container">
+		<!-- ACCOUNT CREATION PANEL AREA -->
+		<div class="form-container admin-container">
+			<form action="">
+				<h1>Create your Account</h1>
+				<div class="input-container">
+					<input id="user-email" placeholder="Enter your Email" type="email" required/>
+				</div>
+				<div class="input-container">
+					<input id="user-name" placeholder="Enter your Full Name" type="text" required/>
+				</div>
+				<div class="input-container">
+					<input id="user-id" placeholder="Enter your Employee ID" type="text" required/>
+				</div>
+				<div class="input-container">
+					<select id="user-position" required>
+						<option value="" disabled selected hidden>Select your Position</option>
+						<option value="staff">Staff</option>
+						<option value="head">Head</option>
+						<option value="admin">Admin</option>
+					</select>
+				</div>
+				<div class="input-container">
+					<input id="admin-pass" placeholder="Enter password" type="password" required/>
+					<span class="toggle-password" onclick="togglePassword()">
+						<i id="eye-icon1" class="fa fa-eye-slash"></i>
+					</span>
+				</div>
+				<button type="button">Submit</button>
+			</form>
+		</div>
+
+		<!-- LOGIN PANEL AREA -->
+		<div class="form-container headtech-container">
+			<form action="">
+				<h1>Login to your Account</h1>
+				<div class="input-container">
+					<input id="login-user" placeholder="Enter email" type="email" required/>
+				</div>
+				<div class="input-container">
+					<input id="login-pass" placeholder="Enter password" type="password" required/>
+					<span class="toggle-password" onclick="togglePassword()">
+						<i id="eye-icon" class="fa fa-eye-slash"></i>
+					</span>
+				</div>
+				<div class="forgot-password">
+					<a href="forgot-password-email.html">Forgot your password?</a>
+				</div>
+				<a href="dashboard.html">
+					<button type="button" class="submit">Log In</button>
+				</a>
+				
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<!-- LOGIN PANEL AREA -->
+				<div class="overlay-panel overlay-left">
+					<div class="group-container">
+						<img src="img/BRMIS Logo.jpg" class="img-brmis">
+						<img src="img/NCH Logo.png">
+						<div>
+							<p class="hospital-name">National Children's Hospital</p>
+							<h4 class="system-title">Bloodbank Record Management<br> with Inventory System</h4>
+						</div>
+					</div>
+					<div class="content">
+						<h1>Ready to save lives?</h1>
+						<p>Sign in as Technician/Head/Admin</p>
+						<button class="ghost" id="headtech">Login Form</button>
+					</div>
+				</div>
+
+				<!-- ACCOUNT CREATION PANEL AREA -->
+				<div class="overlay-panel overlay-right">
+					<div class="group-container">
+						<img src="img/BRMIS Logo.jpg" class="img-brmis">
+						<img src="img/NCH Logo.png">
+						<div>
+							<p class="hospital-name">National Children's Hospital</p>
+							<h4 class="system-title">Bloodbank Record Management <br> with Inventory System</h4>
+						</div>
+					</div>
+					<div class="content">
+						<h1>Greetings!</h1>
+						<p>No Account?</p>
+						<button class="ghost" id="admin"><span class="button-content">Account Creation Form</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="login.js"></script>
+</body>
+</html>
