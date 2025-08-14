@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Inventory - Distributed Units</title>
+  <link rel="stylesheet" href="viewUnits.css">
+  <style>
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
+    .data-table th, .data-table td { white-space: nowrap; }
+  </style>
+</head>
+<body id="distributedView">
+  <h1>Blood Inventory - Distributed Units</h1>
+
+  <section class="section-block">
+    <h2>Distributed Units</h2>
+
+    <!-- Search Bar -->
+    <input type="text" id="searchInput" placeholder="Search any field..." />
+
+    <div class="table-scroll">
+      <table class="data-table" id="distributedTable">
+        <thead id="distributedTableHead">
+          <tr>
+            <th>Distribution Unit ID</th>
+            <th>Distributed Blood Unit</th>
+            <th>Patient ID</th>
+            <th>Patient Ward</th>
+            <th>Blood Donor ID</th>
+            <th>Last Update Timestamp</th>
+            <th>Last Updated by User</th>
+          </tr>
+        </thead>
+        <tbody id="distributedTableBody">
+          <!-- Sample rows – replace with backend data -->
+          <tr id="distributed-row-1" data-row="1">
+            <td id="distunitid-1">DU-0001</td>
+            <td id="distbloodunit-1">Whole Blood</td>
+            <td id="patientid-1">PT-001</td>
+            <td id="patientward-1">Ward A</td>
+            <td id="donorid-1">DN-1023</td>
+            <td id="lastupdate-1">02/08/2025 14:22</td>
+            <td id="updatedby-1">jdelacruz</td>
+          </tr>
+
+          <tr id="distributed-row-2" data-row="2">
+            <td id="distunitid-2">DU-0002</td>
+            <td id="distbloodunit-2">PRBC</td>
+            <td id="patientid-2">PT-002</td>
+            <td id="patientward-2">Ward B</td>
+            <td id="donorid-2">DN-1088</td>
+            <td id="lastupdate-2">03/08/2025 09:41</td>
+            <td id="updatedby-2">mmarquez</td>
+          </tr>
+
+          <tr id="distributed-row-3" data-row="3">
+            <td id="distunitid-3">DU-0003</td>
+            <td id="distbloodunit-3">Platelets</td>
+            <td id="patientid-3">PT-003</td>
+            <td id="patientward-3">Ward C</td>
+            <td id="donorid-3">DN-1110</td>
+            <td id="lastupdate-3">04/08/2025 11:05</td>
+            <td id="updatedby-3">rsantos</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="viewUnits.js"></script>
+</body>
+</html>

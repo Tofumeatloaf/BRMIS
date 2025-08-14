@@ -1,0 +1,110 @@
+:root {
+  /* Blood Bank Themed Color Palette */
+  --color-dark-red: #8B0000; /* Dark Red */
+  --color-very-dark: #1C1C1C; /* Very Dark Gray for backgrounds */
+  --color-off-white: #F5F5F5; /* Soft Off White */
+  --color-golden-brown: #C19A6B; /* Warm Golden Brown Accent */
+  --color-dark-red-alt: #B22222; /* Firebrick Red Alternative */
+  --color-light-red: #FF6B6B; /* Light Red Accent */
+  --color-muted-gray: #6E6E6E; /* Muted Gray for text */
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: var(--color-very-dark);
+  margin-top: 30px;
+  margin-bottom: 40px;
+  font-size: 2.3rem;
+  font-weight: bold;
+}
+
+.section-block {
+  max-width: 850px;
+  background: #8B0000;
+  margin: 24px auto;
+  padding: 28px 32px 24px 32px;
+  border-radius: 15px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+}
+
+.section-block h2 {
+  color: var(--color-dark-red-alt);
+  margin-bottom: 18px;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent !important;
+  border: 2px solid var(--color-dark-red-alt); /* Outer border red */
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid var(--color-dark-red-alt); /* All lines red using variable */
+  padding: 12px 10px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.data-table th {
+  background: #f0f0f5;
+  font-weight: bold; /* Make header text bold */
+  color: var(--color-dark-red); /* Change text color to dark red alt */
+}
+.data-table tr:nth-child(even) {
+  background: #fafafd;
+}
+
+@media (max-width: 900px) {
+  .section-block {
+    padding: 14px 4vw 10px 4vw;
+    max-width: 99vw;
+  }
+  .data-table th,
+  .data-table td {
+    font-size: 0.98rem;
+    padding: 8px 5px;
+  }
+}
+#searchInput {
+  margin-top: 20px;
+  margin-bottom: 20px;   /* 👈 Adds space between search bar and table */
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ececec;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* --- Dashboard Matching Style for Donor Info Section --- */
+.section-block {
+  background: transparent !important;   /* Remove white bg */
+  box-shadow: none !important;          /* Remove card shadow */
+  border-radius: 0 !important;          /* No rounded corners */
+  max-width: 100% !important;           /* Take all available width */
+  width: 100% !important;               /* Fill parent */
+  margin: 0 auto 0 auto !important;     /* Center horizontally if needed */
+  padding: 0 0 24px 0 !important;       /* Remove left/right padding, keep bottom */
+}
+
+.data-table {
+  background: transparent !important;   /* Optional: table fully transparent */
+}
+
+/* Optional: Adjust search bar width for wide layout */
+#searchInput {
+  max-width: 600px;
+  margin-left: 0;
+  margin-right: 0;
+  display: block;
+}

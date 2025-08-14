@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="summaryReport.css">
+<body>
+  <div class="summary-wrap">
+    <!-- Filters -->
+    <div class="summary-filters">
+      <div class="filter-row">
+        <label>
+          From
+          <input type="date" id="sumDateFrom">
+        </label>
+        <label>
+          To
+          <input type="date" id="sumDateTo">
+        </label>
+        <button id="sumApply">Apply</button>
+        <button id="sumReset" class="ghost">Reset</button>
+      </div>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">Collected Units</div>
+        <div class="kpi-value" id="kpiCollected">0</div>
+        <div class="kpi-sub" id="kpiCollectedSub">—</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Distributed Units</div>
+        <div class="kpi-value" id="kpiDistributed">0</div>
+        <div class="kpi-sub" id="kpiDistributedSub">—</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Available Stock</div>
+        <div class="kpi-value" id="kpiAvailable">0</div>
+        <div class="kpi-sub" id="kpiAvailableSub">collected - distributed - expired</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Expired Units</div>
+        <div class="kpi-value" id="kpiExpired">0</div>
+        <div class="kpi-sub" id="kpiExpiredSub">—</div>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-title">Monthly Collected vs Distributed</div>
+        <canvas id="chartMonthly"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Inventory by Blood Type</div>
+        <canvas id="chartByType"></canvas>
+      </div>
+    </div>
+
+    <!-- Breakdown Table -->
+    <div class="table-card">
+      <div class="table-title">Breakdown by Status</div>
+      <div class="table-scroll">
+        <table class="data-table" id="statusTable">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- filled by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+   <!-- Export -->
+<div class="export-row">
+  <button id="sumExportPdf">Export PDF</button>
+</div>
+
+<!-- Load Chart.js (already in your file) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Add these two for PDF export -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</body>
+<script src="summaryReport.js"></script>
+</html>
