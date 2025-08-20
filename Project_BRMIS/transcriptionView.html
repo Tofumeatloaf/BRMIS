@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Inventory - Patients</title>
+  <link rel="stylesheet" href="viewUnits.css">
+  <style>
+    .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px}
+    .data-table th,.data-table td{white-space:nowrap}
+  </style>
+</head>
+<body id="transcriptionView">
+  <h1>Transcription Records</h1>
+
+  <section class="section-block">
+    <h2>Patient Records</h2>
+    <input type="text" id="searchInput" placeholder="Search any field..." />
+    <div class="table-scroll">
+      <table class="data-table" id="transcriptionTable">
+        <thead id="transcriptionTableHead">
+          <tr>
+            <th>Transcription ID</th>
+            <th>Patient ID</th>
+            <th>Blood Donor ID</th>
+            <th>Collected Blood Unit</th>
+            <th>Collection Date</th>
+            <th>Blood Unit Status</th>
+            <th>Last Update Timestamp</th>
+            <th>Last Updated by User</th>
+          </tr>
+        </thead>
+        <tbody id="transcriptionTableBody">
+          <!-- optional sample row; keep or remove -->
+          <tr>
+            <td>TRN-0001</td>
+            <td>PNT12345</td>
+            <td>DON-7788</td>
+            <td>CBU-001122</td>
+            <td>2025-06-24</td>
+            <td>existing</td>
+            <td>2025-06-24 15:42</td>
+            <td>jdelacruz</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="viewUnits.js"></script>
+  <script src="view-loader.js"></script>
+</body>
+</html>
