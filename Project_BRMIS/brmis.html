@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Management System</title>
+    <!-- Make sure to use the correct CSS file -->
+    <link rel="stylesheet" href="brmis.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="logo-details">
+            <div class="logo_name">Blood Bank</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="#" data-section="dashboardSection">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <!-- Inventory with dropdown - Fixed structure -->
+            <li class="has-dropdown">
+                <a href="#" class="menu-btn" data-section="inventorySection">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Inventory</span>
+                    <i class='bx bx-chevron-down dropdown-icon'></i>
+                </a>
+                <span class="tooltip">Inventory</span>
+                <ul class="submenu">
+                    <li>
+                        <a href="#" data-section="inventoryViewSection">
+                            <span>View</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="inventoryAddSection">
+                            <span>Add</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- Reservation with dropdown - Fixed structure -->
+            <li class="has-dropdown">
+                <a href="#" class="menu-btn" data-section="reservationSection">
+                    <i class='bx bx-calendar'></i>
+                    <span class="links_name">Reservation</span>
+                    <i class='bx bx-chevron-down dropdown-icon'></i>
+                </a>
+                <span class="tooltip">Reservation</span>
+                <ul class="submenu">
+                    <li>
+                        <a href="#" data-section="reservationViewSection">
+                            <span>View Reservation</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="reservationAddSection">
+                            <span>Add Reservation</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-section="newsSection">
+                    <i class='bx bx-news'></i>
+                    <span class="links_name">News & Updates</span>
+                </a>
+                <span class="tooltip">News & Updates</span>
+            </li>
+            <!-- Transcription with dropdown - Fixed structure -->
+            <li class="has-dropdown">
+                <a href="#" class="menu-btn" data-section="transcriptionSection">
+                    <i class='bx bx-microphone'></i>
+                    <span class="links_name">Transcription</span>
+                    <i class='bx bx-chevron-down dropdown-icon'></i>
+                </a>
+                <span class="tooltip">Transcription</span>
+                <ul class="submenu">
+                    <li>
+                        <a href="#" data-section="transcriptionViewSection">
+                            <span>View Transcription</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="transcriptionAddSection">
+                            <span>Add Transcription</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- Summary Report with dropdown - Fixed structure -->
+            <li class="has-dropdown">
+                <a href="#" class="menu-btn" data-section="summaryReportSection">
+                    <i class='bx bx-chart'></i>
+                    <span class="links_name">Summary Report</span>
+                    <i class='bx bx-chevron-down dropdown-icon'></i>
+                </a>
+                <span class="tooltip">Summary Report</span>
+                <ul class="submenu">
+                    <li>
+                        <a href="#" data-section="summaryDistributionSection">
+                            <span>Distribution Report</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="summaryCollectionSection">
+                            <span>Collection Report</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-section="settingsSection">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Settings</span>
+                </a>
+                <span class="tooltip">Settings</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <img src="assets/img/profile.png" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name">John Smith</div>
+                        <div class="job">MedTech</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out" onclick="showLogoutModal()"></i>
+            </li>
+        </ul>
+    </nav>
+    <main class="home-section">
+        <!-- Dashboard Section -->
+        <section id="dashboardSection" class="content-section">
+            <div class="text">Dashboard</div>
+            <p>Welcome to your Blood Bank Management System dashboard.</p>
+        </section>
+
+        <!-- Inventory Sections -->
+        <section id="inventorySection" class="content-section" style="display:none;">
+            <div class="text">Inventory</div>
+            
+            <!-- View Inventory Sub-section -->
+            <div id="inventoryViewSection" class="sub-section">
+                <h3>View Inventory</h3>
+                <div class="inventory-content">
+                    <p>View and manage your blood inventory here.</p>
+                    <!-- Add your inventory view table/content here -->
+                </div>
+            </div>
+
+            <!-- Add Inventory Sub-section -->
+            <div id="inventoryAddSection" class="sub-section">
+                <h3>Add Inventory</h3>
+                <div class="inventory-content">
+                    <p>Add new blood inventory records here.</p>
+                    <!-- Add your inventory form here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation Section -->
+        <section id="reservationSection" class="content-section" style="display:none;">
+            <div class="text">Reservation</div>
+            
+            <!-- View Reservation Sub-section -->
+            <div id="reservationViewSection" class="sub-section">
+                <h3>View Reservations</h3>
+                <div class="reservation-content">
+                    <p>View and manage blood reservations here.</p>
+                    <!-- Add your reservation view table/content here -->
+                </div>
+            </div>
+
+            <!-- Add Reservation Sub-section -->
+            <div id="reservationAddSection" class="sub-section">
+                <h3>Add Reservation</h3>
+                <div class="reservation-content">
+                    <p>Create new blood reservation requests here.</p>
+                    <!-- Add your reservation form here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="newsSection" class="content-section">
+            <div class="text">News & Updates</div>
+            <p>Latest blood bank news and updates will appear here.</p>
+        </section>
+
+        <!-- Transcription Section -->
+        <section id="transcriptionSection" class="content-section" style="display:none;">
+            <div class="text">Transcription</div>
+            
+            <!-- View Transcription Sub-section -->
+            <div id="transcriptionViewSection" class="sub-section">
+                <h3>View Transcriptions</h3>
+                <div class="transcription-content">
+                    <p>View transcription records here.</p>
+                    <!-- Add your transcription view content here -->
+                </div>
+            </div>
+
+            <!-- Add Transcription Sub-section -->
+            <div id="transcriptionAddSection" class="sub-section">
+                <h3>Add Transcription</h3>
+                <div class="transcription-content">
+                    <p>Create new transcription records here.</p>
+                    <!-- Add your transcription form here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary Report Section -->
+        <section id="summaryReportSection" class="content-section" style="display:none;">
+            <div class="text">Summary Report</div>
+            
+            <!-- Distribution Report Sub-section -->
+            <div id="summaryDistributionSection" class="sub-section">
+                <h3>Distribution Reports</h3>
+                <div class="report-content">
+                    <p>View distribution summary reports here.</p>
+                    <!-- Add your distribution reports content here -->
+                </div>
+            </div>
+
+            <!-- Collection Report Sub-section -->
+            <div id="summaryCollectionSection" class="sub-section">
+                <h3>Collection Reports</h3>
+                <div class="report-content">
+                    <p>View collection analytics and reports here.</p>
+                    <!-- Add your collection reports content here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settingsSection" class="content-section">
+            <div class="text">Settings</div>
+            <div class="settingCard">
+                <button class="accordion-header">Account Settings</button>
+                <div class="accordion-panel">
+                    <p>Manage your account settings and preferences.</p>
+                </div>
+            </div>
+            <div class="settingCard">
+                <button class="accordion-header">Notifications</button>
+                <div class="accordion-panel">
+                    <p>Customize your notification preferences.</p>
+                </div>
+            </div>
+            <div class="settingCard">
+                <button class="accordion-header">Privacy</button>
+                <div class="accordion-panel">
+                    <p>Control your privacy settings and data sharing.</p>
+                </div>
+            </div>
+            <!-- System Settings Button -->
+            <div class="settingCard system-settings-btn-card">
+                <button id="openSystemSettings" class="system-settings-btn">
+                    <i class='bx bx-wrench'></i> System Settings
+                </button>
+            </div>
+            <!-- System Settings Panel (hidden by default) -->
+            <div id="systemSettingsPanel" class="system-settings-panel">
+                <div class="system-settings-header">
+                    <span>System Settings</span>
+                    <button id="closeSystemSettings" class="close-system-settings">&times;</button>
+                </div>
+                <div class="system-settings-content">
+                    <ul>
+                        <li><strong>Backup & Restore:</strong> Manage data backups and restore points.</li>
+                        <li><strong>System Updates:</strong> Check for and apply updates.</li>
+                        <li><strong>User Management:</strong> Add, remove, or edit user roles.</li>
+                        <li><strong>Logs:</strong> View system logs and activity reports.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+                <button id="confirmLogout" class="confirm-btn">Yes</button>
+                <button id="cancelLogout" class="cancel-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Make sure to use the correct JS file -->
+    <script src="brmis.js" defer></script>
+</body>
+
+</html>

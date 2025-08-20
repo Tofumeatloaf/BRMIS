@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Patient</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="patientAdd.css">
+</head>
+<body>
+  <form class="form" action="" method="get">
+    <!-- Patient Section -->
+    <div class="section-title">Patient Record</div>
+
+    <div class="input-group">
+      <input id="patient_id" type="text" name="patient_id" class="input" placeholder=" " required>
+      <label>Patient ID</label>
+    </div>
+
+    <div class="input-group">
+      <input id="patient_name" type="text" name="patient_name" class="input" placeholder=" " required>
+      <label>Patient Name</label>
+    </div>
+
+    <div class="input-group">
+      <input id="patient_ward" type="text" name="patient_ward" class="input" placeholder=" " required>
+      <label>Patient Ward</label>
+    </div>
+
+    <div class="input-group">
+      <input id="patient_birthdate" type="date" name="patient_birthdate" class="input" placeholder=" " required>
+      <label>Patient Birthdate</label>
+    </div>
+
+    <div class="input-group">
+      <input id="patient_contact" type="tel" name="patient_contact" class="input" placeholder=" " required>
+      <label>Patient Contact Number</label>
+    </div>
+
+    <div class="input-group">
+      <input id="last_update_timestamp" type="datetime-local" name="last_update_timestamp" class="input" placeholder=" " required>
+      <label>Last Update Timestamp</label>
+    </div>
+
+    <div class="input-group">
+      <input id="last_updated_by" type="text" name="last_updated_by" class="input" placeholder=" " required>
+      <label>Last Updated by User</label>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+  <script src="addSubmit.js"></script>
+</body>
+</html>

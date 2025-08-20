@@ -1,0 +1,158 @@
+:root {
+  /* Blood Bank Themed Color Palette */
+  --color-dark-red: #8B0000; /* Dark Red */
+  --color-very-dark: #1C1C1C; /* Very Dark Gray for backgrounds */
+  --color-off-white: #F5F5F5; /* Soft Off White */
+  --color-golden-brown: #C19A6B; /* Warm Golden Brown Accent */
+  --color-dark-red-alt: #B22222; /* Firebrick Red Alternative */
+  --color-light-red: #FF6B6B; /* Light Red Accent */
+  --color-muted-gray: #6E6E6E; /* Muted Gray for text */
+}
+.summary-wrap {
+  background: transparent !important; /* removed white */
+  border-radius: 8px;
+  box-shadow: none !important; /* removed shadow */
+  padding: 20px;
+}
+
+.summary-filters {
+  margin-bottom: 14px;
+}
+
+.filter-row {
+  display: flex;
+  gap: 12px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.filter-row label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  color: #1C1C1C;
+}
+
+.filter-row input[type="date"] {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #F5F5F5;
+  background: #F5F5F5;
+}
+
+.filter-row button {
+  padding: 9px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #8B0000;
+  color: #F5F5F5;
+  font-weight: 600;
+}
+
+.filter-row button.ghost {
+  background: #8C8C8C;
+  color: #F5F5F5;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.kpi-card {
+  background: transparent !important; /* removed white/gray */
+  border: 1px solid #8B0000; /* faint border */
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: none !important;
+}
+
+.kpi-title {
+  font-size: 0.95rem;
+  color: #1C1C1C;
+}
+.kpi-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #11101D;
+  margin: 6px 0 4px;
+}
+.kpi-sub {
+  font-size: 0.85rem;
+  color: #6E6E6E;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.chart-card {
+  background: transparent !important;
+  height: 320px;            /* pick the height you like: 260–420px works well */
+  position: relative;       /* lets Chart.js size correctly */
+}
+
+.chart-card canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;  /* force canvas to match the card height */
+}
+
+.chart-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.table-card {
+  margin-top: 16px;
+  background: transparent !important; /* removed white */
+  border: 1px solid #8B0000 ; /* faint border */
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: none !important;
+}
+
+.table-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.table-scroll { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th, .data-table td {
+  border-bottom: 1px solid #1C1C1C;
+  padding: 10px 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+.data-table th { background: transparent !important; } /* no gray bg */
+
+.export-row {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+.export-row button {
+  padding: 9px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #8B0000;
+  color: #F5F5F5;
+  font-weight: 600;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.export-row button:hover {
+  background: #B22222;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .chart-grid { grid-template-columns: 1fr; }
+}
