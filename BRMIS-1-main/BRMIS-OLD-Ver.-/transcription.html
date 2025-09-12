@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>TryWithMe | BOCS - Transcription</title>
+
+    <!-- REFERENCES -->
+    <link rel="stylesheet" href="assets/css/transcription_style.css">
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" type="image/png" href="assets/img/BOCS Logo.png">
+    <link rel="apple-touch-icon" type="image/png" href="assets/img/BOCS Logo.png">
+
+    <script src="assets/js/dashboard.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="dashboard.html">
+                <img src="assets/img/BOCS Logo Banner.png" class="img_bocs">
+            </a>
+            <ul class="links">
+                <li class="link">
+                    <a href="inventory.html" class="link-item">Inventory</a>
+                </li>
+                <li class="link">
+                    <a href="colndistrib.html" class="link-item">Collect & Distribution</a>
+                </li>
+                <li class="link">
+                    <a href="reservation.html" class="link-item">Reservation</a>
+                </li>
+                <li class="link">
+                    <a href="transcription.html" class="link-item active">Transcription Record</a>
+                </li>
+                <li class="link">
+                    <a href="sumrep.html" class="link-item">Summary Report</a>
+                </li>
+            </ul>
+            <img src="assets/img/user.jpg" class="img_user menuBar" onclick="toggleMenu()">
+        </nav>
+    </header>
+    <section class="mini-nav">
+        <nav class="nav2">
+            <a href="dashboard.html" class="icon-link img_backIcon">
+                <img src="assets/img/arrow_back.png">
+            </a>
+            <h1 class="title">
+                TRANSCRIPTION RECORD
+            </h1>
+            <div class="icon-link img_changeIcon" onclick="changeContent()">
+                <img src="assets/img/change_circle.png">
+            </div>
+            <a href="dashboard.html" class="icon-link img_homeIcon">
+                <img src="assets/img/home.png">
+            </a>
+        </nav>
+    </section>
+    <main class="main">
+        <img src="assets/img/NCH Logo.png" class="img_nch">
+        <section class="sub_wrap hide" id="toggleMenu">
+            <div class="sub" id="menu">
+                <button type="submit" class="close" onclick="toggleMenu()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="user_info">
+                    <img src="assets/img/user.jpg" class="img_user--">
+                    <h2>Doe, John Micheal V.<hr></h2>
+                    <p>MedTech</p>
+                    <p>123456789</p>
+                    <hr>
+                    <a href="update.html">
+                        <button type="button" class="update_btn"><span><img src="assets/img/edit_square.png" class="icon"></span>Update Profile</button>
+                    </a>
+                    <a href="login.html">
+                        <button type="button" class="logout_btn"><span><img src="assets/img/logout.png" class="icon"></span>Log Out</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="list">
+            <form action="" class="form" method="post" autocomplete="off">
+                <div class="input-group">
+                    <input type="text" class="input" id="TransId" required>
+                    <label for="TransId">Transcription ID</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="input" id="PntId" required>
+                    <label for="PntId">Patient ID</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="input" id="DnrQty" required>
+                    <label for="DnrQty">Donor Quantity</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="input" id="RBC" required>
+                    <label for="RBC">RBC</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="input" id="PS" required>
+                    <label for="PS">Platelet</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="input" id="PA" required>
+                    <label for="PA">Plasma</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="input" id="WB" required>
+                    <label for="WB">Whole Blood</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="input" id="AP" required>
+                    <label for="AP">Apherisis</label>
+                </div>
+                <div class="input-group">
+                    <input type="date" class="input" id="Coll" required>
+                    <label for="Coll">Collection Date</label>
+                </div>
+                <div class="input-group">
+                    <select class="input" id="Stat">
+                        <option value="" disabled selected>Select Status</option>
+                        <option value="On-Process">On-Process</option>
+                        <option value="Eliminated">Eliminated</option>
+                    </select>
+                    <label class="placeholder">Status</label>
+                </div>
+                <input type="submit" value="SUBMIT">
+            </form>
+        </section>
+        <section class="list2">
+            <section class="search-container">
+                <div class="forms">
+                    <form action="" class="form1" method="" autocomplete="off">
+                        <input type="search" placeholder="Search..." class="search-bar">
+                        <button type="submit" class="search-button"><img src="assets/img/search.png" class="img_searchIcon"></button>
+                    </form>
+                    <div class="img_qrIcon">
+                        <img src="assets/img/qr_code_scanner.png">
+                    </div>
+                </div>
+
+                <div class="search-list">
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Transcription ID</th>
+                                    <th>Patient ID</th>
+                                    <th>Donor Quantity</th>
+                                    <th>RBC</th>
+                                    <th>Platelets</th>
+                                    <th>Plasma</th>
+                                    <th>Whole Blood</th>
+                                    <th>Apheresis</th>
+                                    <th>Collection</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section class="data-container">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Transcription ID</th>
+                                <th>Patient</th>
+                                <th>Donor Quantity</th>
+                                <th>RBC</th>
+                                <th>Platelets</th>
+                                <th>Plasma</th>
+                                <th>Whole Blood</th>
+                                <th>Apheresis</th>
+                                <th>Collection</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+</html>

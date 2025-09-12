@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blood Inventory - Collected Units</title>
+  <link rel="stylesheet" href="viewUnits.css">
+  <style>
+    /* Keep table readable even with many columns */
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 8px;
+    }
+    .data-table th,
+    .data-table td {
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body id="collectedView">
+  <h1>Blood Inventory - Collected Units</h1>
+
+  <section class="section-block">
+    <h2>Collected Units</h2>
+
+    <!-- Search Bar at the Top -->
+    <input type="text" id="searchInput" placeholder="Search any field..." />
+
+    <!-- Responsive scroll for many columns -->
+    <div class="table-scroll">
+      <table class="data-table" id="collectedTable">
+        <thead id="collectedTableHead">
+          <tr>
+            <th>Collected Unit ID</th>
+            <th>Collected Blood Unit</th>
+            <th>Type of Blood Unit</th>
+            <th>Collection Date</th>
+            <th>Expiration Date</th>
+            <th>Blood Unit Barcode</th>
+            <th>Blood Donor ID</th>
+            <th>Last Update Timestamp</th>
+            <th>Last Updated by User</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="collectedTableBody">
+          <!-- Sample rows – replace with your data source -->
+          <tr>
+            <td id="unitid-1">CU-0001</td>
+            <td id="collectedunit-1">Whole Blood</td>
+            <td id="type-1">A+</td>
+            <td id="collectiondate-1">02/08/2025</td>
+            <td id="expirationdate-1">02/10/2025</td>
+            <td id="barcode-1">WB-A1-230045</td>
+            <td id="donorid-1">DN-1023</td>
+            <td id="lastupdate-1">02/08/2025 14:22</td>
+            <td id="updatedby-1">jdelacruz</td>
+            <td id="status-1">Existing</td>
+          </tr>
+          <tr>
+            <td id="unitid-2">CU-0002</td>
+            <td id="collectedunit-2">PRBC</td>
+            <td id="type-2">O-</td>
+            <td id="collectiondate-2">03/08/2025</td>
+            <td id="expirationdate-2">03/10/2025</td>
+            <td id="barcode-2">PR-0N-552019</td>
+            <td id="donorid-2">DN-1088</td>
+            <td id="lastupdate-2">03/08/2025 09:41</td>
+            <td id="updatedby-2">mmarquez</td>
+            <td id="status-2">Distributed</td>
+          </tr>
+          <tr>
+            <td id="unitid-3">CU-0003</td>
+            <td id="collectedunit-3">Platelets</td>
+            <td id="type-3">B+</td>
+            <td id="collectiondate-3">04/08/2025</td>
+            <td id="expirationdate-3">06/08/2025</td>
+            <td id="barcode-3">PL-BP-774310</td>
+            <td id="donorid-3">DN-1110</td>
+            <td id="lastupdate-3">04/08/2025 11:05</td>
+            <td id="updatedby-3">rsantos</td>
+            <td id="status-3">Expired</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <script src="viewUnits.js"></script>
+<script src="view-loader.js"></script>
+</body>
+</html>

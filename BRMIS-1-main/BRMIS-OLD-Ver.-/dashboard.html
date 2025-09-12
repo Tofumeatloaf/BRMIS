@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dropdown Sidebar - Tivotal</title>
+
+  <!--font awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+  <!-- flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+
+  <!--css file-->
+  <link rel="stylesheet" href="dashboard.css" />
+  <!-- flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+</head>
+
+<body>
+  <!-- flatpickr JS -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <nav class="sidebar close">
+    <a href="dashboard.html">
+      <div class="logo">
+        <img src="assets/img/BRMIS Logo.jpg" alt="">
+        <span class="logo-name">BRMIS</span>
+      </div>
+    </a>
+
+    <ul class="nav-list">
+
+      <li class="active icon-link">
+        <div>
+          <a href="#">
+            <i class="fab fa-microsoft"></i>
+            <span class="link-name">Dashboard</span>
+          </a>
+        </div>
+
+        <ul class="sub-menu blank">
+          <li><a href="#" class="link-name">Dashboard</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class="fab fa-codepen"></i>
+            <span class="link-name">Inventory</span>
+          </a>
+          <i class="fas fa-caret-down arrow"></i>
+        </div>
+
+        <ul class="sub-menu">
+          <li><a href="#" class="link-name">Inventory</a></li>
+          <li><a href="#">View</a></li>
+          <li><a href="#">Add</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class="fab fa-blogger"></i>
+            <span class="link-name">Reservation</span>
+          </a>
+          <i class="fas fa-caret-down arrow"></i>
+        </div>
+
+        <ul class="sub-menu">
+          <li><a href="#" class="link-name">Reservation</a></li>
+          <li><a href="#">View</a></li>
+          <li><a href="#">Add</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fas fa-clock-rotate-left"></i>
+          <span class="link-name">News & Updates</span>
+        </a>
+
+        <ul class="sub-menu blank">
+          <li><a href="#" class="link-name">News & Updates</a></li>
+          <li><a href="#">System maintenance scheduled from 2 AM to 4 AM</a></li>
+          <li><a href="#">New inventory module released</a></li>
+          <li><a href="#">User access permissions updated</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class="fas fa-bookmark"></i>
+            <span class="link-name">Transcription</span>
+          </a>
+          <i class="fas fa-caret-down arrow"></i>
+        </div>
+
+        <ul class="sub-menu">
+          <li><a href="#" class="link-name">Transcription</a></li>
+          <li><a href="#">View Transcription</a></li>
+          <li><a href="#">Add Transcription</a></li>
+        </ul>
+      </li>
+
+
+      <li>
+        <div class="icon-link">
+          <a href="#">
+            <i class="fas fa-laptop-code"></i>
+            <span class="link-name">Summary Report</span>
+          </a>
+          <i class="fas fa-caret-down arrow"></i>
+        </div>
+
+        <ul class="sub-menu">
+          <li><a href="#" class="link-name">Summary Report</a></li>
+          <li><a href="#">Distribution Report</a></li>
+          <li><a href="#">Collection Report</a></li>
+        </ul>
+      </li>
+
+
+      <li>
+        <a href="#">
+          <i class="fas fa-gear"></i>
+          <span class="link-name">Settings</span>
+        </a>
+
+        <ul class="sub-menu blank">
+          <li><a href="#" class="link-name">Settings</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="profile-details">
+          <div class="profile-content">
+            <img src="profile.jpg" alt="" />
+          </div>
+
+          <div class="name-job">
+            <div class="name">Mary Karen</div>
+            <div class="job">Technician</div>
+          </div>
+          <i class="fas fa-right-to-bracket"></i>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+
+  <main class="home-section">
+    <img src="assets/img/NCH Logo.png" alt="" class="bg-nch_logo">
+    <nav class="main-nav">
+      <div class="home-content">
+        <i class="fas fa-bars"></i>
+        <span class="title-text text">BloodBank Record Management and Inventory System</span>
+      </div>
+      <div class="nav-right">
+        <div class="search-container">
+
+          <input type="text" placeholder="Search..." class="search-bar" />
+          <button class="search-button" title="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <button class="qr-button" title="Scan QR Code">
+          <i class="fas fa-qrcode"></i>
+        </button>
+      </div>
+    </nav>
+
+    <section class="dashCon">
+      <div class="dashboard-columns">
+        <div class="container announcement-column" id="announcements">
+          <h2>Announcements</h2>
+          <div class="announcement-carousel">
+            <div class="announcement-item" data-title="Blood Donation Drive" data-date="July 10th"
+              data-description="Join us for a blood donation drive at Hospital A. Your donation can save lives.">
+              <img src="assets/img/drive1.webp" alt="Blood Donation Drive 1" />
+              <div class="announcement-text">
+                <h3>Blood Donation Drive</h3>
+                <p class="date">July 10th</p>
+                <p>Join us for a blood donation drive at Hospital A. Your donation can save lives.</p>
+              </div>
+            </div>
+            <div class="announcement-item" data-title="Health Camp" data-date="July 15th"
+              data-description="Free health check-up camp at Hospital B. All are welcome.">
+              <img src="assets/img/drive2.jpeg" alt="Health Camp" />
+              <div class="announcement-text">
+                <h3>Health Camp</h3>
+                <p class="date">July 15th</p>
+                <p>Free health check-up camp at Hospital B. All are welcome.</p>
+              </div>
+            </div>
+            <div class="announcement-item" data-title="Awareness Program" data-date="July 20th"
+              data-description="Awareness program on blood donation benefits at Hospital C.">
+              <img src="assets/img/drive3.webp" alt="Awareness Program" />
+              <div class="announcement-text">
+                <h3>Awareness Program</h3>
+                <p class="date">July 20th</p>
+                <p>Awareness program on blood donation benefits at Hospital C.</p>
+              </div>
+            </div>
+            <div class="announcement-item" data-title="Blood Donation Drive" data-date="July 25th"
+              data-description="Another blood donation drive at Hospital D.">
+              <img src="assets/img/drive4.jpeg" alt="Blood Donation Drive 2" />
+              <div class="announcement-text">
+                <h3>Blood Donation Drive</h3>
+                <p class="date">July 25th</p>
+                <p>Another blood donation drive at Hospital D.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container news-column" id="newsUpdate">
+          <h2>News and Updates</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2024-06-01</div>
+              <div class="timeline-content">System maintenance scheduled from 2 AM to 4 AM.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2024-05-25</div>
+              <div class="timeline-content">New inventory module released.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2024-05-10</div>
+              <div class="timeline-content">User access permissions updated.</div>
+            </div>
+          </div>
+    </section>
+
+    <section class="inventCon" style="display:none;">
+      <div class="inventory-children">
+        <section class="viewStockCon" style="display:block;">
+          <div class="container" id="viewStockSection">
+            <h3>View Stock</h3>
+            <table class="inventory-table" border="1" cellpadding="8" cellspacing="0"
+              style="width:100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                    <th class="sortable" onclick="sortTableByColumn('viewStockSection', 0)">Item Name <span class="sort-arrow"></span></th>
+                  <th class="sortable" onclick="sortTableByColumn('viewStockSection', 1)">Quantity <span class="sort-arrow"></span></th>
+                  <th class="sortable" onclick="sortTableByColumn('viewStockSection', 2)">Location <span class="sort-arrow"></span></th>
+                  <th class="sortable" onclick="sortTableByColumn('viewStockSection', 3)">Last Updated <span class="sort-arrow"></span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Blood Bags</td>
+                  <td>120</td>
+                  <td>Storage Room A</td>
+                  <td>2024-06-10</td>
+                </tr>
+                <tr>
+                  <td>Gloves</td>
+                  <td>500</td>
+                  <td>Storage Room B</td>
+                  <td>2024-06-08</td>
+                </tr>
+                <tr>
+                  <td>Syringes</td>
+                  <td>300</td>
+                  <td>Storage Room A</td>
+                  <td>2024-06-09</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="addStockCon" style="display:none;">
+          <div class="container" id="addStockSection">
+            <h3>Add Stock</h3>
+            <form id="addStockForm forms">
+              <div class="input-group">
+                <input type="text" id="itemName" name="itemName" class="input" required />
+                <label for="itemName">Item Name</label>
+              </div>
+              <div class="input-group">
+                <input type="number" id="quantity" name="quantity" class="input" min="1" required />
+                <label for="quantity">Quantity</label>
+              </div>
+              <div class="input-group">
+                <input type="text" id="location" name="location" class="input" required />
+                <label for="location">Location</label>
+              </div>
+              <div class="input-group">
+                <input type="date" id="lastUpdated" name="lastUpdated" class="input" required />
+                <label for="lastUpdated">Last Updated</label>
+              </div>
+              <input type="submit" value="Add Stock" />
+            </form>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="reservCon" style="display:none;">
+<section class="viewReservCon" style="display:block;">
+  <div class="container" id="viewReservationSection">
+    <h3>View Reservation</h3>
+      <table id="reservationTable" border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th class="sortable" onclick="sortTableByColumn('reservationTable', 0)">Donor Name <span class="sort-arrow"></span></th>
+          <th class="sortable" onclick="sortTableByColumn('reservationTable', 1)">Blood Type <span class="sort-arrow"></span></th>
+          <th class="sortable" onclick="sortTableByColumn('reservationTable', 2)">Quantity (units) <span class="sort-arrow"></span></th>
+          <th class="sortable" onclick="sortTableByColumn('reservationTable', 3)">Reservation Date <span class="sort-arrow"></span></th>
+          <th class="sortable" onclick="sortTableByColumn('reservationTable', 4)">Status <span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>A+</td>
+          <td>2</td>
+          <td>2024-06-15</td>
+          <td>Confirmed</td>
+        </tr>
+        <tr>
+          <td>Jane Smith</td>
+          <td>O-</td>
+          <td>1</td>
+          <td>2024-06-16</td>
+          <td>Pending</td>
+        </tr>
+        <tr>
+          <td>Michael Johnson</td>
+          <td>B+</td>
+          <td>3</td>
+          <td>2024-06-17</td>
+          <td>Cancelled</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+      <section class="addReservCon" style="display:none;">
+        <div class="container" id="addReservationSection">
+          <h3>Add Reservation</h3>
+          <form id="addReservationForm forms">
+            <div class="input-group">
+              <input type="text" id="donorName" name="donorName" class="input" required />
+              <label for="donorName">Donor Name</label>
+            </div>
+            <div class="input-group">
+              <select id="bloodType" name="bloodType" class="input" required>
+                <option value="" disabled selected>Select Blood Type</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+              <label for="bloodType">Blood Type</label>
+            </div>
+            <div class="input-group">
+              <input type="number" id="quantity" name="quantity" class="input" min="1" required />
+              <label for="quantity">Quantity (units)</label>
+            </div>
+            <div class="input-group">
+              <input type="date" id="reservationDate" name="reservationDate" class="input" required />
+              <label for="reservationDate">Reservation Date</label>
+            </div>
+            <div class="input-group">
+              <select id="status" name="status" class="input" required>
+                <option value="" disabled selected>Select Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+              <label for="status">Status</label>
+            </div>
+            <input type="submit" value="Submit Reservation" />
+          </form>
+        </div>
+      </section>
+    </section>
+
+
+    <section class="newsUpdateCon">
+      <h2>News and Updates</h2>
+      <div class="news-grid">
+        <article class="news-card">
+          <img src="assets/img/news1.jpeg" alt="System Maintenance" class="news-image" />
+          <div class="news-content">
+            <h3>System maintenance scheduled</h3>
+            <time datetime="2024-06-01" class="news-date">June 1, 2024</time>
+            <p>System maintenance scheduled from 2 AM to 4 AM. Please plan accordingly.</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="assets/img/news2.png" alt="Inventory Module" class="news-image" />
+          <div class="news-content">
+            <h3>New inventory module released</h3>
+            <time datetime="2024-05-25" class="news-date">May 25, 2024</time>
+            <p>We have released a new inventory module with enhanced features and usability.</p>
+          </div>
+        </article>
+        <article class="news-card">
+          <img src="assets/img/news3.png" alt="User Permissions" class="news-image" />
+          <div class="news-content">
+            <h3>User access permissions updated</h3>
+            <time datetime="2024-05-10" class="news-date">May 10, 2024</time>
+            <p>User access permissions have been updated to improve security and compliance.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="transCon" style="display:none;">
+      <section class="viewTransCon" style="display:block;">
+        <div class="container" id="viewTranscriptionSection">
+          <h3>View Transcription</h3>
+          <table id="transcriptionTable" border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse: collapse;">
+            <thead>
+              <tr>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 0)">Transcription ID <span class="sort-arrow"></span></th>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 1)">Patient ID <span class="sort-arrow"></span></th>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 2)">Donor Quantity <span class="sort-arrow"></span></th>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 3)">RBC <span class="sort-arrow"></span></th>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 4)">Platelet <span class="sort-arrow"></span></th>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 5)">Plasma <span class="sort-arrow"></span></th>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 6)">Whole Blood <span class="sort-arrow"></span></th>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 7)">Apheresis <span class="sort-arrow"></span></th>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 8)">Collection Date <span class="sort-arrow"></span></th>
+                <th class="sortable" onclick="sortTableByColumn('transcriptionTable', 9)">Status <span class="sort-arrow"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>TR001</td>
+                <td>PT001</td>
+                <td>2</td>
+                <td>5.0</td>
+                <td>3.0</td>
+                <td>4.0</td>
+                <td>1.0</td>
+                <td>0.5</td>
+                <td>2024-06-10</td>
+                <td>On-Process</td>
+              </tr>
+              <tr>
+                <td>TR002</td>
+                <td>PT002</td>
+                <td>1</td>
+                <td>4.5</td>
+                <td>2.5</td>
+                <td>3.5</td>
+                <td>1.2</td>
+                <td>0.7</td>
+                <td>2024-06-11</td>
+                <td>Eliminated</td>
+              </tr>
+              <tr>
+                <td>TR003</td>
+                <td>PT003</td>
+                <td>3</td>
+                <td>5.5</td>
+                <td>3.5</td>
+                <td>4.5</td>
+                <td>1.1</td>
+                <td>0.6</td>
+                <td>2024-06-12</td>
+                <td>On-Process</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="addTransCon" style="display:none;">
+        <div class="container" id="addTranscriptionSection">
+          <h3>Add Transcription</h3>
+          <form action="" class="form" method="post" autocomplete="off">
+            <div class="input-group">
+              <input type="text" class="input" id="TransId" required />
+              <label for="TransId">Transcription ID</label>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" id="PntId" required />
+              <label for="PntId">Patient ID</label>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" id="DnrQty" required />
+              <label for="DnrQty">Donor Quantity</label>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" id="RBC" required />
+              <label for="RBC">RBC</label>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" id="PS" required />
+              <label for="PS">Platelet</label>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" id="PA" required />
+              <label for="PA">Plasma</label>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" id="WB" required />
+              <label for="WB">Whole Blood</label>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" id="AP" required />
+              <label for="AP">Apherisis</label>
+            </div>
+            <div class="input-group">
+              <input type="text" class="input" id="Coll" required />
+              <label for="Coll">Collection Date</label>
+            </div>
+            <div class="input-group">
+              <select class="input" id="Stat">
+                <option value="" disabled selected>Select Status</option>
+                <option value="On-Process">On-Process</option>
+                <option value="Eliminated">Eliminated</option>
+              </select>
+              <label class="placeholder">Status</label>
+            </div>
+            <input type="submit" value="SUBMIT" />
+          </form>
+        </div>
+      </section>
+    </section>
+
+    <section class="settingsCon">
+      <h2>System Settings</h2>
+      <div class="settings-actions-container">
+        <div class="settings-action-item" data-action="profile">
+          <i class="fas fa-user"></i>
+          <span>Profile Update</span>
+        </div>
+        <div class="settings-action-item" data-action="notifications">
+          <i class="fas fa-bell"></i>
+          <span>Notification Settings</span>
+        </div>
+        <div class="settings-action-item" data-action="security">
+          <i class="fas fa-lock"></i>
+          <span>Security Settings</span>
+        </div>
+        <div class="settings-action-item" data-action="preferences">
+          <i class="fas fa-cogs"></i>
+          <span>Preferences</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="summaryCon" style="display:none;">
+        <section class="distributionReportCon" style="display:block;">
+          <div class="container" id="distributionReportSection">
+            <h2>Distribution Report</h2>
+            <form id="distributionReportForm">
+              <label for="distStartDate">Start Date:</label>
+              <input type="date" id="distStartDate" name="distStartDate" required />
+              <label for="distEndDate">End Date:</label>
+              <input type="date" id="distEndDate" name="distEndDate" required />
+              <button type="submit">Generate Report</button>
+            </form>
+            <div id="distributionReportOutput"
+              style="margin-top: 20px; white-space: pre-wrap; background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #ccc;">
+            </div>
+            <div id="distributionReportPreview"
+              style="margin-top: 20px; white-space: pre-wrap; background: #e9ecef; padding: 15px; border-radius: 8px; border: 1px solid #adb5bd;">
+            </div>
+            <div style="margin-top: 10px;">
+              <button id="printDistributionReport">Print</button>
+              <button id="downloadDistributionReport">Download</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="collectionReportCon" style="display:none;">
+          <div class="container" id="collectionReportSection">
+            <h2>Collection Report</h2>
+            <table border="1" cellpadding="8" cellspacing="0" style="width:100%; border-collapse: collapse;">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Collected Quantity</th>
+                  <th>Source</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Blood Bags</td>
+                  <td>70</td>
+                  <td>Blood Drive X</td>
+                  <td>2024-06-09</td>
+                </tr>
+                <tr>
+                  <td>Gloves</td>
+                  <td>300</td>
+                  <td>Donation Y</td>
+                  <td>2024-06-08</td>
+                </tr>
+                <tr>
+                  <td>Syringes</td>
+                  <td>180</td>
+                  <td>Donation Z</td>
+                  <td>2024-06-07</td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="collectionReportPreview"
+              style="margin-top: 20px; white-space: pre-wrap; background: #e9ecef; padding: 15px; border-radius: 8px; border: 1px solid #adb5bd;">
+            </div>
+            <div style="margin-top: 10px;">
+              <button id="printCollectionReport">Print</button>
+              <button id="downloadCollectionReport">Download</button>
+            </div>
+          </div>
+        </section>
+    </section>
+
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

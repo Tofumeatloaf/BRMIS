@@ -1,0 +1,298 @@
+:root {
+  /* Blood Bank Themed Color Palette */
+  --color-dark-red: #8B0000; /* Dark Red */
+  --color-very-dark: #1C1C1C; /* Very Dark Gray for backgrounds */
+  --color-off-white: #F5F5F5; /* Soft Off White */
+  --color-golden-brown: #C19A6B; /* Warm Golden Brown Accent */
+  --color-dark-red-alt: #B22222; /* Firebrick Red Alternative */
+  --color-light-red: #FF6B6B; /* Light Red Accent */
+  --color-muted-gray: #6E6E6E; /* Muted Gray for text */
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* Triggered animation */
+.fade-in-section.visible {
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* General Reset */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-off-white);
+    position: relative;
+}
+<<<<<<< SEARCH
+nav ul li a {
+    color: var(--color-muted-gray);
+    /* text-gray-600 */
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: var(--color-dark-red);
+    /* text-gray-800 */
+}
+
+/* Highlight active link */
+nav ul li a.active {
+    color: var(--color-dark-red-alt);
+    /* Tailwind blue-700 or use your brand color */
+    font-weight: bold;
+    border-bottom: 2px solid var(--color-dark-red-alt);
+    /* optional underline effect */
+}
+=======
+nav ul li a {
+    color: var(--color-muted-gray);
+    /* text-gray-600 */
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: var(--color-dark-red);
+    /* text-gray-800 */
+}
+
+/* Highlight active link */
+nav ul li a.active {
+    color: var(--color-dark-red-alt);
+    /* Tailwind blue-700 or use your brand color */
+    font-weight: bold;
+    border-bottom: 2px solid var(--color-dark-red-alt);
+    /* optional underline effect */
+}
+<<<<<<< SEARCH
+footer {
+    background-color: var(--color-dark-red-alt);
+    color: var(--color-off-white);
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+=======
+footer {
+    background-color: var(--color-dark-red-alt);
+    color: var(--color-off-white);
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+<<<<<<< SEARCH
+.btn_login {
+    transition: all ease-in .3s;
+}
+
+.btn_login:active {
+    background-color: #1d4ed8;
+}
+
+.btn_login:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+=======
+.btn_login {
+    transition: all ease-in .3s;
+    background-color: var(--color-dark-red-alt);
+    color: var(--color-off-white);
+}
+
+.btn_login:active {
+    background-color: var(--color-dark-red);
+}
+
+.btn_login:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-light-red);
+}
+
+/* Header / Navbar */
+header {
+    position: fixed; /* <-- make navbar fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95px;
+    background: white;
+    z-index: 1000; /* very important to be on top */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+    padding: 1.5rem 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container img {
+    height: 4vw;
+}
+nav ul {
+    display: flex;
+    gap: 2.5rem;
+}
+
+nav ul li a {
+    color: #4B5563;
+    /* text-gray-600 */
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #1F2937;
+    /* text-gray-800 */
+}
+
+/* Highlight active link */
+nav ul li a.active {
+    color: #1d4ed8;
+    /* Tailwind blue-700 or use your brand color */
+    font-weight: bold;
+    border-bottom: 2px solid #1d4ed8;
+    /* optional underline effect */
+}
+
+/* Other sections */
+section {
+    height: 100vh;
+    /*padding-top: 6rem; add space to offset the fixed header height */
+}
+
+/* Common section style */
+section:not(#homeSec) {
+    min-height: 100vh;
+}
+
+/* Carousel (Home Section) */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.carousel img.active {
+    opacity: 1;
+    position: relative;
+}
+
+/* Home text overlay */
+.carousel>.absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.btn_login {
+    transition: all ease-in .3s;
+}
+
+.btn_login:active {
+    background-color: #1d4ed8;
+}
+
+.btn_login:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.usercon.highlight {
+    filter: brightness(1.1) saturate(1.2);
+    transform: scale(1.01);
+    transition: all 0.8s ease;
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(29, 78, 216, 0.7);
+}
+
+.usercon.blur {
+    filter: blur(1px) brightness(0.7);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    opacity: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    background: var(--color-dark-red-alt);
+    color: var(--color-off-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: var(--color-light-red);
+    /* Change color on hover */
+}
+
+/* Footer */
+footer {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}

@@ -1,0 +1,121 @@
+--> stakeholders: technician (inputs), head (status update, summary report), admin(acct management, posting)
+
+--> blood unit: RBC, Platelets, Plasma, Apheresis
+
+--> blood types: A+, A-, B+, B-, AB+, AB-, O+, 0-
+
+--> hospital wards: ER (Emergency Room), ICU, General Ward 1, Ward 3 (Neuro/M3/GI/CARDIO/NEPHRO), Ward 4 (HEMA/ONCO), Ward 5 (COVID WARD, TB ISOLATION ROOM), Ward 6 (COVID WARD, Surgery Ward
+
+NOTE: NO WARD 2
+
+___________________________________
+
+INVENTORY:
+
+user input for collected
+1. collected unit id - PL25461
+2. collected blood unit - Platelets
+3. type of collected blood unit - AB+
+4. collection date of blood unit - June 24, 2025
+5. expiration date of blood unit - July 24, 2025
+6. blood unit barcode -
+7. blood donor ID - dnr24616
+8. last update timestamp
+9. last updated by user
+10. status (existing, distributed, expired) - head
+
+user input for donors
+1. blood donor ID - DNR12345
+2. blood donor name - John Felix
+3. donor blood type - AB+
+4. donor collected blood unit - Platelets
+5. donor birthdate - September 17, 1900
+6. donor donation date - June 24, 2025
+7. donor contact number - 09123456789
+8. donor address - #123 Ahon St., Malaborn City
+9. last update timestamp
+10.last updated by user
+
+user input for distributed
+1. distribution unit ID - PL25461
+2. distributed blood unit - Platelets
+4. patient ID - PNT12345 
+5. patient ward - Ward 4
+6. blood donor ID - DNR12345
+7. last update timestamp
+8. last updated by user
+
+
+user view (user input infos) with sorting
+* list of all collected blood units 
+* list of all distributed blood units
+* list of all donor infos
+
+___________________________________
+
+RESERVATION:
+
+user input for reservation
+1. reservation ID - RSV124656
+2. patient ID - PNT12345
+3. reserve blood unit - Platelets
+4. blood unit reservation quantity - 10
+5. blood unit reservation status (head)
+6. last update timesPNT12345tamp
+7. last updated by user
+
+user view (user input infos)
+* list of all reservation
+
+___________________________________
+
+TRANSCRIPTION:
+
+user input for transcription
+1. transcription ID - TR12345
+2. patient ID - PNT12345
+3. blood donor ID - DNR12345
+4. collected blood unit - Platelets
+5. collection date - June 24, 2025
+6. blood unit status (existing or used - head)
+7. last update timestamp
+8. last updated by user
+
+user input for patient
+1. patient ID - PNT12345
+2. patient name - Maureen Aira
+3. patient ward - Ward 4
+4. patient birthdate - February 5, 1901
+5. patient contact number - 09987456123
+6. last update timestamp
+7. last updated by user
+
+user view (user input infos)
+* list of all transcription record
+* list of all patients info
+
+___________________________________
+
+SUMMARY REPORT
+
+--> collected and distributed
+(specific month and year)
+
+___________________________________
+
+
+DB TBLS
+1. Account
+2. Inventory 
+* collected
+* donor
+* distributed
+3. Reservation
+4. Transcription
+* transcription records
+* patient records
+
+
+
+
+
