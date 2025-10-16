@@ -1,0 +1,708 @@
+/* CSS Variables */
+:root {
+    --primary-bg: #11101D;
+    --secondary-bg: #1d1b31;
+    --active-bg: #fff;
+    --parent-active: rgba(255, 255, 255, 0.95);
+    --child-active: rgba(255, 255, 255, 0.85);
+    --text-active: #11101D;
+    --text-light: #fff;
+}
+
+/* Keeping your existing CSS and adding new styles for nested dropdowns */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #e4e9f7;
+}
+
+/* Sidebar Base Styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 78px;
+    background: #11101D;
+    padding: 6px 14px;
+    z-index: 1;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: width;
+}
+
+.sidebar.open {
+    width: 250px;
+}
+
+.sidebar .logo-details {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.sidebar .logo-details .logo_name {
+    color: var(--text-light);
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details,
+.sidebar.open .logo-details .logo_name {
+    opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+    text-align: center;
+}
+
+.sidebar i {
+    color: #fff;
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.sidebar .nav-list {
+    margin-top: 20px;
+    height: 100%;
+}
+
+.sidebar li {
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+}
+
+.sidebar input {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 400;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.5s ease;
+    background: #1d1b31;
+}
+
+.sidebar.open input {
+    padding: 0 20px 0 50px;
+    width: 100%;
+}
+
+.sidebar .bx-search {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    background: #1d1b31;
+    color: #fff;
+}
+
+.sidebar .bx-search:hover {
+    background: #fff;
+    color: #11101D;
+}
+
+.sidebar.open .bx-search:hover {
+    background: #1d1b31;
+    color: #fff;
+}
+
+.sidebar li i {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+.sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: #11101D;
+}
+
+.sidebar li a:hover {
+    background: #fff;
+}
+
+.sidebar li a .links_name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.sidebar.open li a .links_name {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+    transition: all 0.5s ease;
+    color: #11101D;
+}
+
+.sidebar li .tooltip {
+    position: absolute;
+    top: -20px;
+    left: calc(100% + 15px);
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.sidebar.open li .tooltip {
+    display: none;
+}
+
+.sidebar li.profile {
+    position: fixed;
+    height: 60px;
+    width: 78px;
+    left: 0;
+    bottom: -8px;
+    padding: 10px 14px;
+    background: var(--secondary-bg);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Match sidebar transition */
+    overflow: hidden;
+}
+
+.sidebar.open li.profile {
+    width: 250px;
+}
+
+.sidebar li .profile-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.sidebar li img {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #fff; /* Optional: Add a white border for better visibility */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.sidebar li.profile .name{
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.sidebar li.profile .job {
+    font-size: 12px;
+    font-weight: 400;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.sidebar .profile #log_out {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: var(--secondary-bg);
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar.open .profile #log_out {
+    width: 50px;
+    background: var(--secondary-bg);
+    right: 0;
+}
+.home-section {
+    position: relative;
+    background: #e4e9f7;
+    padding: 20px 40px 24px 25px;
+    min-height: 100vh;
+    margin-left: 78px;
+    width: calc(100% - 78px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, margin-left, width;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .sidebar {
+        overflow: hidden;
+    }
+    .sidebar.open {
+        width: 200px;
+    }
+    .home-section {
+        padding: 20px 40px 20px 50px;
+    }
+}
+
+.sidebar.open ~ .home-section {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.home-section .text {
+    display: inline-block;
+    color: #11101D;
+    font-size: 30px;
+    font-weight: 900;
+    margin: 0 0 18px 0;
+    z-index: 1;
+}
+
+/* Active tab styling */
+.nav-list li.active > a {
+    background: #fff; /* Highlight the active tab with a white background */
+    color: #11101D; /* Change text color to match the background */
+    border-radius: 12px; /* Add rounded corners for a modern look */
+    font-weight: bold; /* Make the text bold */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for emphasis */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.nav-list li.active > a .links_name {
+    color: #11101D; /* Ensure the text inside the active tab is visible */
+}
+
+.nav-list li.active > a i {
+    color: #11101D; /* Change the icon color to match the active tab */
+    font-size: 20px; /* Adjust the icon size if needed */
+    transition: all 0.3s ease; /* Smooth transition for icon styling */
+}
+
+.nav-list li.active > a:hover {
+    background: #e4e9f7; /* Slightly lighter background on hover */
+    color: #11101D; /* Keep the text color consistent */
+}
+
+.nav-list li.active > a:hover i,
+.nav-list li.active > a:hover .links_name {
+    color: #11101D; /* Ensure the icon color remains consistent on hover */
+}
+
+/* Default hover styling for non-active tabs */
+.nav-list li a:hover {
+    background: #1d1b31; /* Darker background for hover effect */
+    color: #fff; /* White text color on hover */
+    border-radius: 12px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.nav-list li a:hover i,
+.nav-list li a:hover .links_name{
+    color: #fff; /* Ensure the icon color matches the hover state */
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.modal-buttons button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.confirm-btn {
+    background: #e63946;
+    color: #fff;
+}
+
+.confirm-btn:hover {
+    background: #d62839;
+}
+
+.cancel-btn {
+    background: #ccc;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background: #bbb;
+}
+
+/* Add to dashboard.css */
+.system-settings-btn-card {
+    text-align: center;
+    margin-top: 24px;
+}
+.system-settings-btn {
+    background: #3b5998;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+.system-settings-btn:hover {
+    background: #2d4373;
+}
+.system-settings-panel {
+    background: #f5f6fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 28px 22px;
+    margin-top: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    animation: fadeIn 0.3s;
+    display: none;
+}
+.system-settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.close-system-settings {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+}
+.system-settings-content ul {
+    padding-left: 18px;
+}
+.system-settings-content li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.nav-list li.active a {
+    background: #fff;
+}
+
+.nav-list li.active a .links_name,
+.nav-list li.active a i {
+    color: #11101D;
+}
+
+.system-settings-panel.open-panel {
+    display: block;
+}
+
+.content-section {
+    display: none;
+    padding: 20px;
+    opacity: 1;
+    transform: translateZ(0); /* Enable hardware acceleration */
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transition: opacity 0.3s ease;
+}
+
+/* Parent section styles */
+.content-section {
+    padding: 20px;
+}
+
+/* Sub-section styles */
+.sub-section {
+    display: none;
+    margin-top: 20px;
+    opacity: 1;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+/* Show dashboard by default */
+#dashboardSection {
+    display: block;
+}
+
+.sub-section {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+    padding: 20px;
+}
+
+.sub-section h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* Content container styles */
+.reservation-content,
+.transcription-content,
+.report-content {
+    padding: 10px 0;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.sidebar li.profile .tooltip {
+    display: none;
+}
+
+.accordion-header {
+    background-color: #f1f1f1;
+    color: #11101D;
+    cursor: pointer;
+    padding: 14px 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 17px;
+    transition: background 0.2s;
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+.accordion-header.active, .accordion-header:hover {
+    background-color: #e0e0e0;
+}
+.accordion-panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-radius: 0 0 6px 6px;
+    margin-bottom: 10px;
+}
+
+/* NEW STYLES FOR NESTED DROPDOWN MENUS */
+
+/* Dropdown menu styling */
+.has-dropdown .menu-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.dropdown-icon {
+    margin-left: auto;
+    font-size: 16px !important;
+    height: 50px;
+    line-height: 50px;
+    transition: transform 0.3s;
+}
+
+.sidebar:not(.open) .dropdown-icon {
+    display: none;
+}
+
+/* Submenu styling */
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-left: 10px;
+    opacity: 0;
+}
+
+.sidebar.open .submenu {
+    opacity: 1;
+}
+
+.submenu-active .submenu {
+    max-height: 200px; /* Adjust this value based on your submenu items */
+    border-radius: 12px;
+}
+
+.submenu-active .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* Submenu item styling */
+.submenu li {
+    margin: 2px 0;
+}
+
+.submenu li a {
+    padding: 8px 10px 8px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    height: 40px;
+    background: #1d1b31;
+    transition: all 0.3s;
+}
+
+.submenu li a span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.submenu li a:hover {
+    background: #fff;
+}
+
+.submenu li a:hover span {
+    color: #11101D;
+}
+
+/* Active submenu item styling */
+.submenu li.active a {
+    background: #fff;
+}
+
+.submenu li.active a span {
+    color: #11101D;
+    font-weight: 600;
+}
+
+/* For collapsed sidebar */
+.sidebar:not(.open) .has-dropdown:hover .tooltip {
+    opacity: 1;
+}
+
+/* Add these variables at the top of your CSS file */
+:root {
+    --active-bg: #fff;
+    --parent-active: rgba(255, 255, 255, 0.95);
+    --child-active: rgba(255, 255, 255, 0.85);
+    --text-active: #11101D;
+}
+
+/* Update the active states */
+.nav-list li.active > a,
+.nav-list li.parent-active > a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Parent active state */
+.nav-list li.parent-active > a {
+    background: var(--parent-active);
+    border-left: 3px solid var(--text-active);
+}
+
+.nav-list li.parent-active > a .links_name,
+.nav-list li.parent-active > a i {
+    color: var(--text-active);
+}
+
+/* Child active state */
+.submenu li.active > a {
+    background: var(--child-active);
+    border-left: 2px solid var(--text-active);
+}
+
+.submenu li.active > a span {
+    color: var(--text-active);
+    font-weight: 500;
+}
+
+/* Active submenu container */
+.nav-list li.parent-active .submenu {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 2px solid var(--text-active);
+    margin-left: 10px;
+}

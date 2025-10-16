@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Donor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="donor.css"/>
+</head>
+<body>
+  <!-- FORM -->
+  <form class="form" action="" method="get">
+    <div class="section-title">Blood Donor Information</div>
+
+    <div class="input-group">
+      <input id="donor-id" type="text" name="donor_id" class="input" placeholder=" " required>
+      <label>Blood Donor ID</label>
+    </div>
+
+    <div class="input-group">
+      <input id="donor-name" type="text" name="donor_name" class="input" placeholder=" " required>
+      <label>Blood Donor Name</label>
+    </div>
+
+    <div class="input-group">
+      <input id="donor-blood-type" type="text" name="blood_type" class="input" placeholder=" " required>
+      <label>Donor Blood Type</label>
+    </div>
+
+    <div class="input-group">
+      <input id="donor-collected-unit" type="text" name="collected_blood_unit" class="input" placeholder=" " required>
+      <label>Donor Collected Blood Unit</label>
+    </div>
+
+    <div class="input-group">
+      <input id="donor-birthdate" type="date" name="birthdate" class="input" placeholder=" " required>
+      <label>Donor Birthdate</label>
+    </div>
+
+    <div class="input-group">
+      <input id="donation-date" type="date" name="donation_date" class="input" placeholder=" " required>
+      <label>Donor Donation Date</label>
+    </div>
+
+    <div class="input-group">
+      <input id="donor-contact" type="text" name="contact_number" class="input" placeholder=" " required>
+      <label>Donor Contact Number</label>
+    </div>
+
+    <div class="input-group">
+      <input id="donor-address" type="text" name="address" class="input" placeholder=" " required>
+      <label>Donor Address</label>
+    </div>
+
+    <div class="input-group">
+      <input id="donor-timestamp" type="datetime-local" name="last_update_timestamp" class="input" placeholder=" " required>
+      <label>Last Update Timestamp</label>
+    </div>
+
+    <div class="input-group">
+      <input id="donor-updated-by" type="text" name="last_updated_by" class="input" placeholder=" " required>
+      <label>Last Updated By User</label>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+  <script src="addSubmit.js"></script>
+</body>
+</html>
