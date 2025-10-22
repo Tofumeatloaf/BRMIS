@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sidebar</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="sidebar">
+    <div class="logo-details">
+      <div class="logo_name"><img src="" alt=""></div>
+      <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search...">
+        <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="#" data-section="dashboardSection">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" data-section="inventorySection" id="inventoryDropdownBtn">
+          <i class='bx bx-droplet'></i>
+          <span class="links_name">Inventory</span>
+          <i class='bx bx-chevron-down dropdown-caret'></i>
+        </a>
+        <span class="tooltip">Inventory</span>
+        <div class="sidebar-dropdown" id="inventoryDropdown" style="max-height:0;overflow:hidden;">
+          <ul>
+            <li><a href="#" id="loadView">View</a></li>
+            <li><a href="#" id="loadAdd">Add</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" data-section="reservationSection" id="reservationDropdownBtn">
+          <i class='bx bx-task'></i>
+          <span class="links_name">Reservation</span>
+          <i class='bx bx-chevron-down dropdown-caret'></i>
+        </a>
+        <span class="tooltip">Reservation</span>
+        <div class="sidebar-dropdown" id="reservationDropdown" style="max-height:0;overflow:hidden;">
+          <ul>
+            <li><a href="#" id="loadReservationView">View</a></li>
+            <li><a href="#" id="loadAddReservation">Add</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a href="#" data-section="transcriptionSection" id="transcriptionDropdownBtn">
+          <i class='bx bx-file'></i>
+          <span class="links_name">Transcription</span>
+          <i class='bx bx-chevron-down dropdown-caret'></i>
+        </a>
+        <span class="tooltip">Transcription</span>
+        <div class="sidebar-dropdown" id="transcriptionDropdown" style="max-height:0;overflow:hidden;">
+          <ul>
+            <li><a href="#" id="loadTranscriptionView">View</a></li>
+            <li><a href="#" id="loadAddTranscription">Add</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li>
+        <a href="#" data-section="summarySection">
+          <i class='bx bx-chart'></i>
+          <span class="links_name">Summary Report</span>
+        </a>
+        <span class="tooltip">Summary Report</span>
+      </li>
+
+      <li>
+        <a href="#" data-section="settingsSection">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Settings</span>
+        </a>
+        <span class="tooltip">Settings</span>
+      </li>
+
+      <li class="profile">
+        <div class="profile-details">
+          <img src="img/profile.jpg" alt="profileImg">
+          <div class="name_job">
+            <div class="name">Aira Maureen Castro</div>
+            <div class="job">Nurse</div>
+          </div>
+        </div>
+        <i class='bx bx-log-out' id="log_out" onclick="showLogoutModal()"></i>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="home-section" style="padding-top: 80px;">
+    <!-- Dashboard Header Bar -->
+    <div class="dashboard-header">
+      <div class="header-left">
+        <img src="img/1.png" alt="Logo" class="header-logo">
+        <span class="dashboard-title" id="dashboardHeaderTitle">Dashboard</span>
+      </div>
+      <button class="post-announcement-btn" id="postAnnouncementBtn" style="display: block;">
+        Post Announcement
+      </button>
+    </div>
+      <!-- new code  -->
+    <!-- =================== DASHBOARD =================== -->
+    <section id="dashboardSection" class="content-section" style="display: block;">
+      <div class="dashboard-columns">
+        <!-- ========== Announcements (Active/Archive) ========== -->
+        <div class="container announcement-column" id="announcements" style="flex: 1 1 100%;">
+          <h2 class="announcements-title" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <span>Announcements</span>
+            <span style="flex:1;"></span>
+            <button id="annActiveTab"  class="pill" style="padding:.35rem .75rem; border-radius:999px; border:1px solid #ccc; background:#fff;">Active</button>
+            <button id="annArchiveTab" class="pill" style="padding:.35rem .75rem; border-radius:999px; border:1px solid #ccc; background:#f7f7f7;">Archive</button>
+          </h2>
+
+          <!-- Hidden Archive panel -->
+          <div id="archivePanel" style="display:none;">
+            <div class="announcement-carousel" id="archiveList"></div>
+          </div>
+
+          <!-- Active list (NOTE: id="liveList") -->
+          <div class="announcement-carousel" id="liveList">
+            <!-- Example seed items (static) -->
+            <div class="announcement-item" data-title="Blood Donation Drive" data-date="July 10th"
+                 data-description="Join us for a blood donation drive at Hospital A. Your donation can save lives.">
+              <img src="img/drive1.webp" alt="Blood Donation Drive 1" class="announcement-img" />
+              <div class="announcement-text">
+                <h3>Blood Donation Drive</h3>
+                <p class="date">July 10th</p>
+                <p>Join us for a blood donation drive at Hospital A. Your donation can save lives.</p>
+              </div>
+            </div>
+            <div class="announcement-item" data-title="Health Camp" data-date="July 15th"
+                 data-description="Free health check-up camp at Hospital B. All are welcome.">
+              <img src="img/drive2.jpeg" alt="Health Camp" class="announcement-img" />
+              <div class="announcement-text">
+                <h3>Health Camp</h3>
+                <p class="date">July 15th</p>
+                <p>Free health check-up camp at Hospital B. All are welcome.</p>
+              </div>
+            </div>
+            <div class="announcement-item" data-title="Awareness Program" data-date="July 20th"
+                 data-description="Awareness program on blood donation benefits at Hospital C.">
+              <img src="img/drive3.webp" alt="Awareness Program" class="announcement-img" />
+              <div class="announcement-text">
+                <h3>Awareness Program</h3>
+                <p class="date">July 20th</p>
+                <p>Awareness program on blood donation benefits at Hospital C.</p>
+              </div>
+            </div>
+            <div class="announcement-item" data-title="Blood Donation Drive" data-date="July 25th"
+                 data-description="Another blood donation drive at Hospital D.">
+              <img src="img/drive4.jpeg" alt="Blood Donation Drive 2" class="announcement-img" />
+              <div class="announcement-text">
+                <h3>Blood Donation Drive</h3>
+                <p class="date">July 25th</p>
+                <p>Another blood donation drive at Hospital D.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+            <!-- new code  -->
+        <!-- ========== News & Updates (Active/Archive) ========== -->
+        <div class="news-card">
+          <div class="news-title" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <span>News and Updates</span>
+            <span style="flex:1;"></span>
+            <button id="newsActiveTab"  class="pill" style="padding:.35rem .75rem; border-radius:999px; border:1px solid #ccc; background:#fff;">Active</button>
+            <button id="newsArchiveTab" class="pill" style="padding:.35rem .75rem; border-radius:999px; border:1px solid #ccc; background:#f7f7f7;">Archive</button>
+          </div>
+
+          <!-- Hidden Archive panel for News -->
+          <div id="newsArchivePanel" style="display:none;">
+            <div class="news-list" id="newsArchiveList"></div>
+          </div>
+
+          <!-- Active list (NOTE: id="liveNewsList") -->
+          <div class="news-list" id="liveNewsList">
+            <!-- Example seed items (static) -->
+            <div class="news-item" data-title="System maintenance scheduled" data-date="June 1, 2024"
+                 data-description="System maintenance scheduled from 2 AM to 4 AM. Please plan accordingly.">
+              <img src="img/news1.jpeg" alt="System Maintenance" class="news-img">
+              <div class="news-item-title">System maintenance scheduled</div>
+              <div class="news-date">June 1, 2024</div>
+              <div class="news-desc">System maintenance scheduled from 2 AM to 4 AM. Please plan accordingly.</div>
+            </div>
+            <div class="news-item" data-title="New inventory module released" data-date="May 25, 2024"
+                 data-description="We have released a new inventory module with enhanced features and usability.">
+              <img src="img/news2.png" alt="Inventory Module" class="news-img">
+              <div class="news-item-title">New inventory module released</div>
+              <div class="news-date">May 25, 2024</div>
+              <div class="news-desc">We have released a new inventory module with enhanced features and usability.</div>
+            </div>
+            <div class="news-item" data-title="User access permissions updated" data-date="May 10, 2024"
+                 data-description="User access permissions have been updated to improve security and compliance.">
+              <img src="img/news3.png" alt="User Permissions" class="news-img">
+              <div class="news-item-title">User access permissions updated</div>
+              <div class="news-date">May 10, 2024</div>
+              <div class="news-desc">User access permissions have been updated to improve security and compliance.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== INVENTORY =================== -->
+    <section id="inventorySection" class="content-section" style="display:none;">
+      <div id="inventoryContainer" class="dynamic-container">
+        <!-- VIEW Button Group -->
+        <div id="viewBtnGroup" style="display: none;">
+          <button class="view-btn" id="viewCollected">Collected Units</button>
+          <button class="view-btn" id="viewDistributed">Distributed Units</button>
+          <button class="view-btn" id="viewDonor">Donor Info</button>
+        </div>
+        <!-- ADD Button Group -->
+        <div id="addBtnGroup" style="display: none;">
+          <button class="add-btn" id="btnCollected">Collected</button>
+          <button class="add-btn" id="btnDonors">Donors</button>
+          <button class="add-btn" id="btnDistributed">Distributed</button>
+        </div>
+        <!-- Dynamic Content -->
+        <div id="inventoryContentArea"></div>
+      </div>
+    </section>
+
+    <!-- =================== RESERVATION =================== -->
+    <section id="reservationSection" class="content-section" style="display:none;">
+      <div id="reservationContainer" class="dynamic-container"></div>
+    </section>
+
+    <!-- =================== TRANSCRIPTION =================== -->
+    <section id="transcriptionSection" class="content-section" style="display:none;">
+      <div id="transcriptionContainer" class="dynamic-container">
+        <!-- VIEW Button Group (Transcription) -->
+        <div id="transcriptionViewBtnGroup" style="display:none;">
+          <button class="view-btn" id="viewTranscription">Transcription</button>
+          <button class="view-btn" id="viewPatient">Patient</button>
+        </div>
+
+        <!-- ADD Button Group (Transcription) -->
+        <div id="transcriptionAddBtnGroup" style="display:none;">
+          <button class="add-btn" id="btnTranscription">Transcription</button>
+          <button class="add-btn" id="btnPatient">Patient</button>
+        </div>
+
+        <!-- Dynamic content goes here -->
+        <div id="transcriptionContentArea"></div>
+      </div>
+    </section>
+
+    <!-- =================== SUMMARY =================== -->
+    <section id="summarySection" class="content-section" style="display:none;">
+      <div id="summaryContainer" class="dynamic-container"></div>
+    </section>
+
+    <!-- new code for settings -->
+   <!-- =================== SETTINGS =================== -->
+<section id="settingsSection" class="content-section" style="display:none;">
+  <div class="settings-header">
+    <h2 class="settings-title">Settings</h2>
+  </div>
+
+  <div class="settings-grid">
+
+   <!-- Profile -->
+<div class="setting-card" data-allow="admin,head,technician">
+  <button type="button" class="accordion-header">Profile</button>
+  <div class="accordion-panel">
+    <form class="profile-form">
+      <div class="profile-top">
+        <img id="avatarPreview" class="avatar" src="" alt="Profile photo">
+        <label class="file-btn">
+          <input id="avatarInput" type="file" accept="image/*" hidden>
+          Change photo
+        </label>
+      </div>
+
+      <div class="form-grid">
+        <label>Full name
+          <input id="profileName" name="name" type="text" placeholder="Your name" autocomplete="name">
+        </label>
+
+        <!-- DROPDOWN INSTEAD OF TEXT INPUT -->
+        <label>Job title
+          <select id="profileRole" name="role" autocomplete="organization-title">
+            <option value="" selected disabled>Select a role</option>
+            <option value="head">Head</option>
+            <option value="technician">Technician</option>
+          </select>
+        </label>
+
+        <label>Email
+          <input id="profileEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email">
+        </label>
+        <label>Employee ID
+          <input
+            id="profileEmployeeId"
+            name="employeeId"
+            type="text"
+            placeholder="e.g., EMP-00123"
+            autocomplete="off"
+            inputmode="text"
+            pattern="[A-Za-z0-9\-]{3,20}"
+            title="3–20 characters, letters/numbers/dashes only"
+          >
+        </label>
+      </div>
+
+      <div class="form-grid two">
+        <label>New password
+          <div class="input-with-eye">
+            <input id="profileNewPassword" type="password" placeholder="••••••••" autocomplete="new-password">
+            <button type="button" class="pwd-toggle" data-target="profileNewPassword" aria-label="Show password" aria-pressed="false">
+              <i class="bx bx-show" aria-hidden="true"></i>
+            </button>
+          </div>
+        </label>
+
+        <label>Confirm password
+          <div class="input-with-eye">
+            <input id="profileConfirmPassword" type="password" placeholder="••••••••" autocomplete="new-password">
+            <button type="button" class="pwd-toggle" data-target="profileConfirmPassword" aria-label="Show password" aria-pressed="false">
+              <i class="bx bx-show" aria-hidden="true"></i>
+            </button>
+          </div>
+        </label>
+      </div>
+      
+      <div class="action-row">
+        <button type="button" class="save-btn">Save changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <!-- Notifications (SMS removed) -->
+    <div class="setting-card" data-allow="admin,head,technician">
+      <button type="button" class="accordion-header">Notifications</button>
+      <div class="accordion-panel">
+        <ul class="toggle-list">
+          <li>
+            <span>Email alerts</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </li>
+          <li>
+            <span>In-app reminders (expiring units, pending reservations)</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Privacy & Security (2FA removed) -->
+    <div class="setting-card" data-allow="admin,head,technician">
+      <button type="button" class="accordion-header">Privacy & Security</button>
+      <div class="accordion-panel">
+        <ul class="toggle-list">
+          <li>
+            <span>Sign out from all devices</span>
+            <button class="pill-btn" type="button">Sign out</button>
+          </li>
+          <li>
+            <span>Download my activity log</span>
+            <button class="pill-btn" type="button">Export</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Account Management (Admin) — fixed card -->
+    <div class="setting-card" data-allow="admin">
+      <button type="button" class="accordion-header">Account Management (Admin)</button>
+      <div class="accordion-panel">
+        <div class="quick-actions">
+          <button id="amAddUserBtn"  class="pill-btn">Add user</button>
+          <button id="amResetPwBtn"  class="pill-btn">Reset passwords</button>
+          <button id="amViewUsersBtn" class="pill-btn">View user list</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inventory rules (kept) -->
+    <div class="setting-card" data-allow="admin,head">
+      <button type="button" class="accordion-header">Inventory Rules & Thresholds</button>
+      <div class="accordion-panel">
+        <div class="form-grid">
+          <label>Minimum stock per blood type (units)
+            <input type="number" min="0" placeholder="e.g., 10">
+          </label>
+          <label>Expiration warning (days before)
+            <input type="number" min="0" placeholder="e.g., 7">
+          </label>
+          <label>Reservation auto-cancel (days)
+            <input type="number" min="0" placeholder="e.g., 3">
+          </label>
+          <label>Cold storage capacity (units)
+            <input type="number" min="0" placeholder="e.g., 500">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technician Preferences (kept) -->
+    <div class="setting-card" data-allow="technician">
+      <button type="button" class="accordion-header">Technician Preferences</button>
+      <div class="accordion-panel">
+        <ul class="toggle-list">
+          <li>
+            <span>Default inventory type when adding</span>
+            <select class="select">
+              <option>Collected</option>
+              <option>Distributed</option>
+              <option>Donor</option>
+            </select>
+          </li>
+          <li>
+            <span>Scanner sound</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </li>
+          <li>
+            <span>Show quick actions on open</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- (Facilities & Departments) — REMOVED -->
+    <!-- (System Settings) — REMOVED -->
+
+  </div>
+</section>
+
+  </main>
+
+  <!-- Logout Confirmation Modal -->
+  <div id="logoutModal" class="modal">
+    <div class="modal-content">
+      <p>Are you sure you want to log out?</p>
+      <div class="modal-buttons">
+        <button id="confirmLogout" class="confirm-btn">Yes</button>
+        <button id="cancelLogout" class="cancel-btn">No</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load main JS -->
+  <script src="dashboard.js" defer></script>
+
+  <!-- Announcement Popup (loaded dynamically) -->
+  <div id="announcementPopup" class="popup-backdrop" style="display: none;">
+    <div class="popup-box">
+      <div id="announcementPopupBody"></div>
+    </div>
+  </div>
+
+  <!-- Floating button: Register -->
+  <button class="fab-register" id="registerFab" aria-label="Register barcode">
+    <i class='bx bx-barcode' aria-hidden="true"></i>
+  </button>
+
+  <!-- Speed-dial menu for the red FAB -->
+  <div id="fabMenu" class="fab-menu" style="display:none;">
+    <button id="fabScanOnly" class="fab-item" aria-label="Scan only">
+      <i class='bx bx-qr-scan' aria-hidden="true"></i>
+      <span>Scan only</span>
+    </button>
+    <button id="fabRegister" class="fab-item" aria-label="Register">
+      <i class='bx bx-list-check' aria-hidden="true"></i>
+      <span>Register</span>
+    </button>
+  </div>
+
+  <!-- Minimal “Scan only” modal -->
+  <div id="scanOnlyModal" class="modal" style="display:none;">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="scanOnlyTitle" style="max-width:420px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <h3 id="scanOnlyTitle" style="margin:0;">Barcode</h3>
+        <button id="closeScanOnly" class="cancel-btn" style="padding:6px 12px;">Close</button>
+      </div>
+
+      <label for="scanOnlyCode" style="display:block;text-align:left;margin:6px 0 4px;">Scanned Code</label>
+      <input id="scanOnlyCode" type="text" readonly
+             style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px">
+
+      <button id="scanOnlySave" class="confirm-btn" style="margin-top:12px">Save</button>
+    </div>
+  </div>
+
+  <!-- Registration Modal -->
+  <div id="registerModal" class="modal" style="display:none;">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="registerTitle" style="max-width:520px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <h3 id="registerTitle" style="margin:0;">Register Barcode</h3>
+        <button id="closeRegister" class="cancel-btn" style="padding:6px 12px;">Close</button>
+      </div>
+
+      <label for="regBarcode" style="display:block;text-align:left;margin:6px 0 4px;">Scanned code</label>
+      <input id="regBarcode" type="text" readonly
+             style="width:100%;padding:10px;border:1px solid #ccc;border-radius:6px">
+
+      <div style="display:grid;gap:8px;margin-top:10px">
+        <label for="regWhere" style="text-align:left">Destination</label>
+        <select id="regWhere" style="padding:8px;border:1px solid #ccc;border-radius:6px">
+          <option value="" selected disabled hidden>Select destination…</option>
+          <option value="inventory">Inventory</option>
+          <option value="reservation">Reservation</option>
+          <option value="transcription">Transcription</option>
+        </select>
+
+        <label for="regSub" id="regSubLabel" style="text-align:left;opacity:.6">Inventory type</label>
+        <select id="regSub" style="padding:8px;border:1px solid #ccc;border-radius:6px" disabled>
+          <option value="" selected disabled hidden>Select type…</option>
+          <option value="collected">Collected</option>
+          <option value="distributed">Distributed</option>
+          <option value="donor">Donor</option>
+        </select>
+      </div>
+
+      <button id="registerGo" class="confirm-btn" style="margin-top:12px">Save</button>
+    </div>
+  </div>
+
+  <!-- ================= Account Management Dialog ================= -->
+<div id="amDialog" class="modal" aria-hidden="true">
+  <div class="am-sheet" role="dialog" aria-modal="true" aria-labelledby="amTitle">
+    <div class="am-header">
+      <h3 id="amTitle">Title</h3>
+      <button class="am-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="am-body" id="amBody"></div>
+  </div>
+</div>
+
+
+<!-- new code for settings -->
+<!-- ============== Templates used inside the dialog ============== -->
+<!-- Add User -->
+<template id="tplAddUser">
+  <form id="amAddForm" class="am-form">
+    <label>Full name
+      <input id="amAddName" type="text" required placeholder="e.g., Jane Dela Cruz">
+    </label>
+
+    <label>Employee ID
+      <input id="amAddEmpId" type="text" required placeholder="e.g., EMP-1005">
+    </label>
+
+    <label>Email
+      <input id="amAddEmail" type="email" required placeholder="name@example.com">
+    </label>
+
+    <label>Role
+      <select id="amAddRole" required>
+        <option value="" disabled selected>Select a role</option>
+        <option value="admin">Admin</option>
+        <option value="head">Head</option>
+        <option value="technician">Technician</option>
+      </select>
+    </label>
+
+    <label>New temporary password
+      <div class="input-with-eye">
+        <input id="amAddTempPw" type="password" placeholder="New temp password" autocomplete="new-password">
+        <button type="button" class="pwd-toggle" data-target="amAddTempPw" aria-label="Show password" aria-pressed="false">
+          <i class="bx bx-show" aria-hidden="true"></i>
+        </button>
+      </div>
+    </label>
+
+    <div class="am-actions">
+      <button type="button" class="cancel-btn" data-close-dialog>Cancel</button>
+      <button type="submit" class="confirm-btn">Add user</button>
+    </div>
+
+    <div id="amAddError" class="hint" style="color:#b3261e;grid-column:1/-1;"></div>
+  </form>
+</template>
+
+<!-- Reset Password -->
+<template id="tplResetPw">
+  <form id="amResetForm" class="am-form">
+    <label>User
+      <select id="amResetUser" required></select>
+    </label>
+
+    <label>New temporary password
+      <div class="input-with-eye">
+        <input id="amResetTempPw" type="password" placeholder="New temp password" autocomplete="new-password">
+        <button type="button" class="pwd-toggle" data-target="amResetTempPw" aria-label="Show password" aria-pressed="false">
+          <i class="bx bx-show" aria-hidden="true"></i>
+        </button>
+      </div>
+    </label>
+
+    <div class="am-actions">
+      <button type="button" class="cancel-btn" data-close-dialog>Cancel</button>
+      <button type="submit" class="confirm-btn">Reset</button>
+    </div>
+
+    <div id="amResetMsg" class="hint" style="grid-column:1/-1;"></div>
+  </form>
+</template>
+
+
+<!-- User List -->
+<template id="tplUserList">
+  <div id="amUsersTableWrap" style="max-height:56vh;overflow:auto;"></div>
+  <div class="modal-buttons" style="margin-top:12px;">
+    <button type="button" class="cancel-btn" data-close-dialog>Close</button>
+  </div>
+</template>
+</body>
+</html>
